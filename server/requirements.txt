@@ -1,0 +1,35 @@
+langchain==0.3.30
+langchain-core==0.3.86
+langchain-openai==0.3.35
+python-dotenv==1.2.2
+loguru==0.7.3
+
+# ===== FastAPI 后端 =====
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy[asyncio]==2.0.35
+# 原为 0.30.1 —— PyPI 上不存在该版本，安装会直接失败
+asyncpg==0.30.0
+aiosqlite==0.22.1
+# aioredis 2.0.1 已停止维护，仅 redis_client.py 惰性引用，DEV_MODE 下不加载
+aioredis==2.0.1
+pydantic-settings==2.5.2
+slowapi==0.1.9
+python-jose[cryptography]==3.3.0
+# passlib 1.7.0 在 Python 3.13 下 ImportError（time.clock 已移除）；
+# 1.7.4 + bcrypt 4.0.1 是当前唯一能跑通的组合
+passlib==1.7.4
+bcrypt==4.0.1
+python-multipart==0.0.9
+httpx==0.27.2
+pytest==8.3.2
+pytest-asyncio==0.24.0
+langchain-community==0.3.4
+pgvector==0.3.5
+psycopg[binary]==3.2.3
+
+# ===== 制度知识库（rag/）=====
+# loader.py 解析 front-matter 依赖；原本由 langchain 间接带入，这里显式声明
+PyYAML==6.0.3
+# 语义检索后端，当前未启用（见 rag/README.md），启用时再装：
+# chromadb>=0.5

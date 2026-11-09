@@ -1,0 +1,39 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+
+# ---------- 环境变量与密钥（务必不要提交）----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---------- Python ----------
+.venv
+venv
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# ---------- 本地数据与向量库 ----------
+*.db
+*.sqlite3
+*.sqlite
+**/chroma_db/
+**/chroma/
+deploy/app/data/
+
+# ---------- 日志与临时文件 ----------
+*.log
+logs/
+tmp/
+temp/
+
+# ---------- 工具产物 ----------
+.workbuddy/
+.vscode/
+.idea/

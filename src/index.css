@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* 品牌色 */
+  --primary: #5865f2;
+  --primary-hover: #4854d8;
+  --primary-light: #eef0fe;
+  --primary-soft: #a5b4fc;
+  --primary-deep: #3730a3;
+  --primary-ink: #4338ca;
+
+  /* 深色侧边栏 */
+  --navy: #0a0d3a;
+  --navy-soft: #1e2353;
+  --navy-text: #c7cad9;
+  --navy-muted: #8a90b8;
+
+  /* 中性色 */
+  --page: #f5f6fa;
+  --line: #e8ebf2;
+  --line-soft: #edf0f5;
+  --field: #f9fafb;
+  --field-border: #e5e7eb;
+  --ink: #1b1d29;
+  --ink-2: #374151;
+  --ink-3: #4b5563;
+  --muted: #6b7280;
+  --faint: #9ca3af;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--page);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 细滚动条，贴合 B 端后台的克制观感 */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d8dbe6;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c2c6d4;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* SSE 打字机光标 */
+  .stream-caret::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    margin-left: 2px;
+    vertical-align: -2px;
+    background: var(--primary);
+    animation: caret-blink 1s step-end infinite;
+  }
+
+  @keyframes caret-blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+}
